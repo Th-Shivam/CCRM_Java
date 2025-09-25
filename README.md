@@ -1,105 +1,269 @@
-# CCRM - My Java Project Submission
+# 🎓 CCRM 
 
-This is my project for the Java course. It's a console application built from scratch to manage student and course records. It demonstrates a wide range of Java SE features, from core OOP principles to modern file I/O.
+> **A comprehensive console application built from scratch to manage student and course records, demonstrating advanced Java SE features and modern programming practices.**
 
----
-
-## Project Overview & How to Run
-
-This application allows a user to import data from CSV files, enroll students, assign grades, view a transcript with a calculated GPA, and create timestamped backups.
-
-### Prerequisites
-* **Java Development Kit (JDK) 17 or newer.**
-
-### How to Run
-1.  **Compile:** Open a terminal in the project's root folder and run this command. It creates an `out` folder with the compiled code.
-    ```sh
-    javac -d out -sourcepath src src/edu/ccrm/Main.java
-    ```
-2.  **Run:** After compiling, run the main class with this command:
-    ```sh
-    java -ea -cp out edu.ccrm.Main
-    ```
+This project showcases a wide range of Java capabilities, from core Object-Oriented Programming principles to modern file I/O operations, all wrapped in an intuitive console interface.
 
 ---
 
-## Evolution of Java
+## 🚀 Project Overview & How to Run
 
-Here are a few major milestones in Java's history that I learned about:
-* **1995:** Java 1.0 was first released.
-* **2004:** Java 5 was a huge update that added key features like Generics and Enums.
-* **2014:** Java 8 was another massive release, introducing Lambda Expressions and the Stream API, which I used in this project.
-* **2018-Present:** Java moved to a faster 6-month release cycle, with Long-Term Support (LTS) versions for stability.
+This application provides a complete student management system that allows users to:
+- 📊 Import data from CSV files
+- 👨‍🎓 Enroll students in courses
+- 📝 Assign and manage grades
+- 🎯 View comprehensive transcripts with calculated GPAs
+- 💾 Create automated timestamped backups
 
----
+### 📋 Prerequisites
+- **Java Development Kit (JDK) 17 or newer** ☕
 
-## Java ME vs. SE vs. EE Comparison
+### 🔧 How to Run
 
-* **Java SE (Standard Edition):** For normal desktop and server apps. **This is what I used for this project.**
-* **Java EE (Enterprise Edition):** For large-scale, web-based business applications.
-* **Java ME (Micro Edition):** For small, resource-limited devices like sensors.
+#### Step 1: Compile
+Open a terminal in the project's root folder and execute:
+```bash
+javac -d out -sourcepath src src/edu/ccrm/Main.java
+```
+*This creates an `out` folder with the compiled bytecode.*
 
----
+#### Step 2: Run
+After successful compilation, launch the application:
+```bash
+java -ea -cp out edu.ccrm.Main
+```
 
-## JDK, JRE, and JVM Explained
+<div align="center">
 
-Here's my understanding of the Java architecture:
-* **JVM (Java Virtual Machine):** The engine that runs the compiled Java bytecode. This is what makes Java "platform-independent."
-* **JRE (Java Runtime Environment):** What you need to *run* a Java application. It includes the JVM and core libraries.
-* **JDK (Java Development Kit):** What you need to *develop* Java applications. It includes the JRE plus the compiler (`javac`) and other tools.
+![Program Running](screenshots/Program_running.png)
 
----
+![Program Running Example](screenshots/program_running_1.png)
 
-## Windows & Eclipse Setup Steps
-
-### Windows JDK Installation
-1.  Download the JDK installer for Windows from the Oracle or OpenJDK website.
-2.  Run the `.exe` installer and follow the setup wizard.
-3.  Set the `JAVA_HOME` environment variable to your JDK installation path (e.g., `C:\Program Files\Java\jdk-21`).
-4.  Update the `Path` environment variable by adding a new entry: `%JAVA_HOME%\bin`.
-5.  Verify the installation by opening a new Command Prompt and running `java -version` and `javac -version`.
-
-    ![alt text](1-jdk-verification.png.png)
-
-### Eclipse Project Setup
-1.  Open Eclipse and go to `File > New > Java Project`.
-2.  Enter a project name (e.g., `CCRM-Project`).
-3.  Ensure the correct JRE is selected.
-4.  Click "Finish".
-5.  Right-click on the `src` folder to create new packages (`edu.ccrm.domain`, `edu.ccrm.cli`, etc.).
-6.  Right-click on a package to create new classes and copy the code into the files.
-
+</div>
 
 ---
 
-## Mapping of Syllabus Topics to My Code
+## 📈 Evolution of Java
 
-This section shows where each of the required concepts can be found in my project.
+### Key Milestones in Java's Journey
 
-* **Inheritance & Abstraction:** Found in `domain/Student.java` which extends the abstract `domain/Person.java`.
-* **Polymorphism:** The `getDetails()` method is an abstract method in `Person` that is implemented by the `Student` subclass.
-* **Encapsulation:** All domain classes use `private` fields with `public` getters and setters.
-* **Singleton Design Pattern:** Implemented in `service/AppConfig.java` to ensure only one instance of the configuration exists.
-* **Builder Design Pattern:** Implemented as a static nested class in `domain/Course.java` for clean object creation.
-* **NIO.2 File I/O:** Used in `io/DataImporter.java` and `io/BackupUtil.java` with `java.nio.file.Path` and `java.nio.file.Files`.
-* **Streams & Lambdas:** Used for searching in `CourseService.java` and for processing files in `DataImporter.java`.
-* **Enums with Fields:** `domain/Grade.java` contains a `double` field for the grade points.
-* **Custom Exceptions:** `exception/StudentNotFoundException.java` is a custom checked exception.
-* **Recursion:** The `calculateDirectorySize` method in `io/BackupUtil.java` uses `Files.walk`, which operates recursively.
-* **Date/Time API:** `io/BackupUtil.java` uses `LocalDateTime` to create a timestamp for backup folder names.
+| Year | Version | Major Features |
+|------|---------|----------------|
+| **1995** | Java 1.0 | 🎉 Initial release - "Write Once, Run Anywhere" |
+| **2004** | Java 5 | 🔧 Generics, Enums, Annotations |
+| **2014** | Java 8 | ⚡ Lambda Expressions, Stream API |
+| **2018-Present** | Modern Java | 🚀 6-month release cycle, LTS versions |
+
+*The Stream API and Lambda Expressions from Java 8 are extensively used throughout this project!*
 
 ---
 
-## Notes on Assertions and Sample Commands
+## 🏗️ Java Platform Comparison
 
-### Enabling Assertions
-The `-ea` flag in the run command is required to enable assertions. This allows the validation checks within the `Course.Builder` class to execute. If you run the program without `-ea`, the `assert` statements will be ignored.
+### Understanding the Java Ecosystem
 
-### Sample Command Workflow
-A typical workflow in the application would be:
-1.  Start the program.
-2.  Enter `6` to **Import Data from Files**.
-3.  Enter `1` to **List All Students** and see the imported data.
-4.  Enter `2` to **List All Courses**.
-5.  Enter `3` to **Enroll Student in Course**, providing a student ID (e.g., `S101`) and a course code (e.g., `MA201`).
-6.  Enter `5` to **Show Student Transcript** for that student.
+<table>
+<tr>
+<th>Platform</th>
+<th>Target</th>
+<th>Use Cases</th>
+<th>Project Usage</th>
+</tr>
+<tr>
+<td><strong>Java SE</strong><br/>(Standard Edition)</td>
+<td>🖥️ Desktop & Server</td>
+<td>General applications, console apps</td>
+<td><strong>✅ Used in this project</strong></td>
+</tr>
+<tr>
+<td><strong>Java EE</strong><br/>(Enterprise Edition)</td>
+<td>🌐 Enterprise Web</td>
+<td>Large-scale business applications</td>
+<td>❌ Not applicable</td>
+</tr>
+<tr>
+<td><strong>Java ME</strong><br/>(Micro Edition)</td>
+<td>📱 Embedded/IoT</td>
+<td>Resource-limited devices</td>
+<td>❌ Not applicable</td>
+</tr>
+</table>
+
+---
+
+## 🔧 Java Architecture: JDK, JRE, and JVM
+
+### Understanding the Java Stack
+
+```
+┌─────────────────────────────────────┐
+│            JDK (Development)        │
+│  ┌─────────────────────────────────┐│
+│  │         JRE (Runtime)           ││
+│  │  ┌─────────────────────────────┐││
+│  │  │    JVM (Virtual Machine)    │││
+│  │  │                             │││
+│  │  └─────────────────────────────┘││
+│  │  + Core Libraries               ││
+│  └─────────────────────────────────┘│
+│  + Compiler (javac) & Tools        │
+└─────────────────────────────────────┘
+```
+
+- **🔧 JVM (Java Virtual Machine):** The execution engine that runs Java bytecode, enabling platform independence
+- **🏃‍♂️ JRE (Java Runtime Environment):** Runtime platform including JVM + core libraries for *running* Java applications
+- **👨‍💻 JDK (Java Development Kit):** Complete development platform including JRE + compiler (`javac`) + development tools
+
+---
+
+## 💻 Windows & Eclipse Setup Guide
+
+### 🪟 Windows JDK Installation
+
+#### Step-by-Step Installation Process
+
+1. **Download** the JDK installer from Oracle or OpenJDK website
+2. **Execute** the `.exe` installer and follow the setup wizard
+
+   ![Installation Process](screenshots/Installation_process_1.png)
+
+3. **Configure Environment Variables:**
+   - Set `JAVA_HOME` → `C:\Program Files\Java\jdk-21`
+   - Update `Path` → Add `%JAVA_HOME%\bin`
+
+4. **Verify Installation** in Command Prompt:
+   ```cmd
+   java -version
+   javac -version
+   ```
+
+   ![Java Verification](screenshots/Java_verification.png)
+
+### 🌙 Eclipse Project Setup
+
+#### Creating Your Development Environment
+
+1. **Start New Project:** `File > New > Java Project`
+
+   ![Eclipse IDE Dashboard](screenshots/Eclipse_ide_dashboard.png)
+
+2. **Configure Project Settings:**
+   - Project name: `CCRM-Project`
+   - Ensure correct JRE version
+
+   ![Project Setup Step 1](screenshots/Project_setup_1.png)
+
+3. **Finalize Creation:** Click "Finish"
+
+   ![Project Setup Step 2](screenshots/Project_setup_2.png)
+
+4. **Create Package Structure:** Right-click `src` folder
+   - `edu.ccrm.domain`
+   - `edu.ccrm.cli`
+   - `edu.ccrm.service`
+
+   ![Project Setup Step 3](screenshots/Project_setup_3.png)
+
+5. **Add Classes:** Right-click packages to create Java classes
+
+   ![Project Development](screenshots/Project_development.png)
+
+---
+
+## 🗺️ Syllabus Topics Implementation Map
+
+### 📚 Comprehensive Feature Coverage
+
+<details>
+<summary><strong>🏗️ Object-Oriented Programming Concepts</strong></summary>
+
+| Concept | Implementation | Location |
+|---------|----------------|----------|
+| **Inheritance & Abstraction** | `Student` extends abstract `Person` | `domain/Student.java` → `domain/Person.java` |
+| **Polymorphism** | Abstract `getDetails()` method implementation | `Person` class hierarchy |
+| **Encapsulation** | Private fields with public getters/setters | All domain classes |
+
+</details>
+
+<details>
+<summary><strong>🎨 Design Patterns</strong></summary>
+
+| Pattern | Purpose | Implementation |
+|---------|---------|----------------|
+| **Singleton** | Single configuration instance | `service/AppConfig.java` |
+| **Builder** | Clean object creation | `domain/Course.java` (nested class) |
+
+</details>
+
+<details>
+<summary><strong>🔧 Modern Java Features</strong></summary>
+
+| Feature | Usage | Location |
+|---------|-------|----------|
+| **NIO.2 File I/O** | Modern file operations | `io/DataImporter.java`, `io/BackupUtil.java` |
+| **Streams & Lambdas** | Data processing & searching | `CourseService.java`, `DataImporter.java` |
+| **Enums with Fields** | Grade points calculation | `domain/Grade.java` |
+| **Date/Time API** | Backup timestamps | `io/BackupUtil.java` |
+
+</details>
+
+<details>
+<summary><strong>🔍 Advanced Programming Concepts</strong></summary>
+
+| Concept | Implementation | Details |
+|---------|----------------|---------|
+| **Custom Exceptions** | Domain-specific error handling | `exception/StudentNotFoundException.java` |
+| **Recursion** | Directory traversal | `calculateDirectorySize()` in `BackupUtil.java` |
+| **Assertions** | Runtime validation | `Course.Builder` class validation |
+
+</details>
+
+---
+
+## ⚡ Application Usage & Commands
+
+### 🔧 Enabling Assertions
+> **Important:** The `-ea` flag is **required** to enable assertion validation in the `Course.Builder` class.
+
+### 📋 Sample Command Workflow
+
+Follow this typical user journey through the application:
+
+```
+🚀 Application Startup
+├── 6️⃣ Import Data from Files
+├── 1️⃣ List All Students (verify import)
+├── 2️⃣ List All Courses (verify import)
+├── 3️⃣ Enroll Student in Course
+│   ├── Student ID: S101
+│   └── Course Code: MA201
+├── 5️⃣ Show Student Transcript
+└── 💾 Automatic Backup Creation
+```
+
+### 📁 Automated Backup System
+
+The application automatically creates timestamped backups:
+
+![Backup Folder](screenshots/Backup_folder.png)
+
+---
+
+## 🎯 Key Features Summary
+
+- ✅ **Complete OOP Implementation** with inheritance and polymorphism
+- ✅ **Modern Java 8+ Features** including Streams and Lambda expressions  
+- ✅ **Professional Design Patterns** (Singleton, Builder)
+- ✅ **Robust File I/O** using NIO.2 APIs
+- ✅ **Custom Exception Handling** for better error management
+- ✅ **Automated Backup System** with timestamps
+- ✅ **Comprehensive Data Management** for students and courses
+- ✅ **GPA Calculation Engine** with grade point system
+
+---
+
+<div align="center">
+
+**Built with ❤️ using Java SE | Demonstrating Modern Programming Practices**
+
+</div>
